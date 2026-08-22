@@ -1,21 +1,24 @@
 #include<iostream>
-#include<cstring>
+#include<string>
+#include<algorithm>
 using namespace std;
 int main()
 {
-    string s1,s2,s3;
-    int i,l,j;
-    cout<<"Enter two words to chech wheater the words are the anagram of each other"<<endl;
-    cin>>s1>>s2;
-    l=s1.length();
-    s3.resize(l);
-    for(i=l-1,j=0;i<=0,j<l;i--,j++)
+    string s1,s2;
+    cout<<"Enter first word: ";
+    cin>>s1;
+    cout<<"Enter second word: ";
+    cin>>s2;
+    if(s1.length()!=s2.length())
     {
-        s3[j]=s2[i];
-    }
-    if(s3==s1)
-        cout<<"The entered words are the anagram of each other";
-        else 
-        cout<<"The entered words are not the anagram of each other";
+        cout<<"The words are not anagrams";
         return 0;
-} 
+    }
+    sort(s1.begin(),s1.end());
+    sort(s2.begin(),s2.end());
+    if(s1==s2)
+        cout<<"The words are anagrams";
+    else
+        cout<<"The words are not anagrams";
+    return 0;
+}
